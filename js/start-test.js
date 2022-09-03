@@ -1,20 +1,6 @@
 var storageRef = firebase.storage().ref();
 var database = firebase.database();
 
-
-var countDownDate = new Date().getTime()+3600*1000;
-
-console.log(countDownDate);
-
-
-function startTime(cocountDownDateunt)
-{
-  
-}
-
-
-
-
 $('#question-list').find('div').html('');
 
 var validTest = document.getElementById('validTestID');
@@ -38,15 +24,19 @@ validTest.addEventListener('click', function(e) {
             var questionID = childData.questionId;
             var correctOption = childData.correctOption;
             var points = childData.points;
-            document.getElementById("question-list").innerHTML += '<div class="question-frame"> <p> Question ID: '+questionID+
-            '</p> <img class="question_img" src="'+questionURL+
-            '" /> <div class="form-check"> <div class="container text-center"> <div class="row"> <div class="col"> <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" /> <label class="form-check-label" for="flexRadioDefault1"> A </label> </div> <div class="col"> <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" /> <label class="form-check-label" for="flexRadioDefault1"> B </label> </div> <div class="col"> <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" /> <label class="form-check-label" for="flexRadioDefault1"> C </label> </div> <div class="col"> <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" /> <label class="form-check-label" for="flexRadioDefault1"> D </label> </div> </div> </div> </div> <button type="button" class="btn btn-outline-success">Success</button> </div>';
-            
-
-            console.log(childData);
+            var param = '\''+questionID+'\',\''+correctOption+'\',\''+testID+'\'';
+            document.getElementById("question-list").innerHTML += '<div class="question-frame"> <p>Question ID: "'+questionID+
+            '"</p> <img class="question_img" src="'+questionURL+
+            '"/> <div class="form-check"> <div class="container text-center"> <div class="row" id="options_'+questionID+
+            '"> <div class="col"> <input class="form-check-input" type="radio" value="A" name="flexRadioDefault_'+questionID+
+            '" id="flexRadioDefault1" /> <label class="form-check-label" for="flexRadioDefault1"> A </label> </div> <div class="col"> <input class="form-check-input" type="radio" value="B" name="flexRadioDefault_'+questionID+
+            '" id="flexRadioDefault1" /> <label class="form-check-label" for="flexRadioDefault1"> B </label> </div> <div class="col"> <input class="form-check-input" type="radio" value="C" name="flexRadioDefault_'+questionID+
+            '" id="flexRadioDefault1" /> <label class="form-check-label" for="flexRadioDefault1"> C </label> </div> <div class="col"> <input class="form-check-input" type="radio" value="D" name="flexRadioDefault_'+questionID+
+            '" id="flexRadioDefault1" /> <label class="form-check-label" for="flexRadioDefault1"> D </label> </div> </div> </div> </div> <button type="button" class="btn btn-outline-success" id="submit_'+questionID+
+            '" onClick="submitAnswer('+param+')">Submit</button> </div>';
           });
 
-
+          var countDownDate = new Date().getTime()+3600*1000;
           var x = setInterval(function() {
 
             var now = new Date().getTime();
@@ -75,7 +65,7 @@ validTest.addEventListener('click', function(e) {
         });
 
         document.getElementById('testID-topic').innerHTML = "Test ID: "+testID;
-        startTime(countDownDate);
+        // startTime(countDownDate);
       }
       else if(status == "COMPLETED")
       {
@@ -87,3 +77,33 @@ validTest.addEventListener('click', function(e) {
   console.log(testID);
 
 });
+
+
+
+
+function submitAnswer(id, value, testID)
+{
+  console.log(id);
+  console.log(value);
+  console.log(testID);
+
+  var options = document.getElementsByName('options_'+id);
+
+  var selectdOpt = document.querySelector('input[name="flexRadioDefault_'+id+'"]:checked').value;
+  var marks= 0;
+  if (value==selectdOpt)
+  {
+    marks = 1;
+    console.log("Correct");
+  }
+  
+  firebase.database().ref('oldQP/'+testID+'/'+id+'/').update({
+    points: marks,
+    selectedOpt : selectdOpt
+  });
+
+  document.getElementById('submit_'+id).innerHTML = "Option "+selectdOpt+ " selected.";
+  document.getElementById('submit_'+id).disabled = true;
+
+
+}

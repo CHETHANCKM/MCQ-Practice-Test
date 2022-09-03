@@ -66,11 +66,20 @@ validTest.addEventListener('click', function(e) {
 
         document.getElementById('testID-topic').innerHTML = "Test ID: "+testID;
         // startTime(countDownDate);
+
       }
       else if(status == "COMPLETED")
       {
-        console.log("Test already completed");
+        console.log("Test Completed");
       }
+      else
+      {
+        window.alert("Invalid Test ID");
+      }
+
+      firebase.database().ref('results/'+testID+'/').update({
+        status: "COMPLETED"
+      });
   });
 
   

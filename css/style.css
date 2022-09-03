@@ -1,0 +1,43 @@
+body
+{
+    width: 100%;
+    padding: 20px;
+}
+
+
+.center-align-div
+{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.btn
+{
+    width: 70%;
+    margin-top: 15px;
+}
+
+
+table
+{
+    border: 1px solid black;
+}
+
+
+td
+{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+th
+{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.tg
+{
+    width: 100%;
+}

@@ -1,0 +1,108 @@
+body{
+    width: 100%;
+    text-align: center;
+}
+
+.ta-center
+{
+    text-align: center;
+}
+
+.w-100
+{
+    width: 100%;
+}
+
+.bg-1
+{
+    background-color: blueviolet;
+}
+
+.bg-2
+{
+    background-color: royalblue
+}
+
+
+
+.border
+{
+    border-color: coral;
+    border-collapse: collapse;
+}
+
+
+.table
+{
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.p-20
+{
+    padding: 20px;
+}
+
+.p-40
+{
+    padding: 60px;
+}
+
+.pd-5
+{
+    vertical-align: baseline;
+    padding: 10px;
+}
+
+.heading
+{
+    font-size: medium;
+    font-weight: 600;
+}
+
+.bg-color
+{
+    background-color: aqua;
+}
+
+.no-margin
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.iframesize
+{
+    width: 100%;
+    height: auto;
+}
+
+.h-100
+{
+    height: 100%;
+}
+.w-90
+{
+    width: 90%;
+}
+
+.option-box
+{
+    margin-top: 30px;
+    overflow-x: auto;
+    overflow-y: auto;
+    text-align:justify;
+}
+
+.fixed
+{
+    position: fixed;
+}
+
+
+.main-heading
+{
+    font-size: x-large;
+    font-weight: 600;
+}

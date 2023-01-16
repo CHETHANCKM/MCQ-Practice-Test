@@ -14,7 +14,7 @@ database.ref('pdfQuestion/qList')
             result = d.val()
             id = result.id
             pdf = result.pdf
-            tilte = result.title
+            tilte = result.title + " ("+ result.questions +" Questions)"
 
             document.getElementById("question-list").innerHTML +=  '<div class="row border"><div class="col-8">'+tilte+'</div><div class="col-4"><a href="quiz.html?id='+id+'"><button type="button" class="btn btn-primary">Start Test</button></a></div></div>';
         });

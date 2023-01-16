@@ -20,52 +20,31 @@
     <body>
         <div class="w-100">
             <div>
-                <div class="row">
-                  <div class="col-sm-9 h-100">
+                <div class="row h-100">
+                  <div class="col-sm-9">
                     <iframe 
                     id="pdfFrame"
                     class="iframesize" 
                     frameborder="0" 
-                    style="overflow: hidden; position: relative; height: 98vh; left: 0px;">
+                    style="overflow: hidden; height: 100%; width: 100%;">
                     </iframe>
-                    <div id="over">
-                      <span class="mp-0">Time left:</span><br>
-                      <span class="mp-0" id="timer"></span>
-                    </div>
                   </div>
-                  <div class="col-sm-3">
-                    <div class="w-100 option-box max-height">
-                      <br>
-                      <div class="alert alert-primary" role="alert">
-                        <span>
-                          Note: Make sure options are written in CAPITAL LETTERS.
-                        </span><br>
-                        <span>Accepted answers:</span><br>
-                        <span>A, B, C, D, AB, ABC, ABCD & text</span>
-                      </div>
-
-                      <div class="alert alert-info" role="alert">
-                       <span>Instructions:</span>
-                       <span id="inst"></span>
-                      </div>
-                      
-                      <div class="sub-content" id="option-list"></div>
-                    <div>
-
-
+                  <div class="col-sm-3 ">
+                    <div class="w-90 option-box">
+                        <div class="sub-content" id="response-list"></div>
+                        </div>
                     </div>
-                    </div>
-     
-
-                  </div>
+                </div>
                 </div>
             </div>
+
         </div>
+
 
         <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
         <script src="config.js"></script>
-        <script src="quiz.js"></script>
+        <script src="viewPaper.js"></script>
     </body>
 </html>

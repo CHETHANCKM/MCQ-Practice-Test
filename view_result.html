@@ -19,31 +19,28 @@
     </head>
     <body>
         <div>
-            <span class="main-heading" id="testId">dw</span>
-         
+            <span class="main-heading">Results</span>
         </div>
-        <div>
+
+        <div class="w-100 ta-center table">
             <div class="container text-center p-20">
                 <div class="row border">
-                    <div class="col-2 heading">Question No: </div>
-                    <div class="col-3 heading">Correct Answer</div>
-                    <div class="col-3 heading">Submited Answer</div>
-                    <div class="col-2 heading">Points</div>
-                    <div class="col-2 heading">Update points</div>
+                    <div class="col-3 heading">Time</div>
+                    <div class="col-3 heading">Title</div>
+                    <div class="col-3 heading">Marks</div>
+                    <div class="col-3 heading">View Response</div>
                 </div>
-                <div class="sub-content" id="eval-list"></div><br>
-
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <div><button type="button" onclick="countMarks()" class="btn btn-success">Update Final Marks</button></div>
-                </div>
- 
+                <div class="sub-content" id="response-list"></div>
+      
             </div>
+            
         </div>
+
 
         <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
         <script src="config.js"></script>
-        <script src="evalPaper.js"></script>
+        <script src="viewResult.js"></script>
     </body>
 </html>

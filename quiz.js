@@ -66,13 +66,13 @@ database.ref('pdfQuestion/qList/'+id)
 database.ref('pdfQuestion/solution/'+id).on('value', function(d)
 {
     var i = 1
-    console.log(d.val());
+    // console.log(d.val());
     d.forEach((childSnapshot) => {
         var key = childSnapshot.val();
         // console.log(key);
         var qNo = key.qNo;
 
-        var param = '\''+id+'\',\''+sessionId+'\',\''+qNo+'\'';
+        var param = '\''+id+'\',\''+sessionId+'\',\''+qNo+'\',\''+i+'\'';
         document.getElementById("option-list").innerHTML += 
         '<label for="basic-url" class="form-label">Question No '+qNo+'</label><div class="input-group mb-3"><input type="text" class="form-control"id="answer_'+i+'"aria-describedby="button-addon2"><button class="btn btn-outline-secondary" type="button" id="submitButton_'+i+'" onClick="submitAnswer('+param+')">Submit</button></div>';
         i = i+1;
@@ -85,16 +85,17 @@ timer(min);
 
 
 
-function submitAnswer(testID, sessionID, qid)
+function submitAnswer(testID, sessionID, qid, id)
 {
-    console.log(window.jsolu[qid])
+    // console.log(window.jsolu[qid])
     correctAns = window.jsolu[qid]['qOpt']
-    inp = 'answer_'+qid.toString();
-    sub = 'submitButton_'+qid.toString();
+    inp = 'answer_'+id.toString();
+    sub = 'submitButton_'+id.toString();
     var answer = document.getElementById(inp).value;
-    window.poi = null
+   
     console.log(answer)
     console.log(correctAns)
+    window.poi = null
     if (correctAns.localeCompare(answer.toUpperCase()))
     {
         window.poi = 0

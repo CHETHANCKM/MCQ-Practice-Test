@@ -72,7 +72,7 @@ database.ref('pdfQuestion/solution/'+id).on('value', function(d)
         console.log(key);
         var qNo = key.qNo;
 
-        var param = '\''+id+'\',\''+sessionId+'\',\''+i+'\'';
+        var param = '\''+id+'\',\''+sessionId+'\',\''+qNo+'\'';
         document.getElementById("option-list").innerHTML += 
         '<label for="basic-url" class="form-label">Question No '+qNo+'</label><div class="input-group mb-3"><input type="text" class="form-control"id="answer_'+i+'"aria-describedby="button-addon2"><button class="btn btn-outline-secondary" type="button" id="submitButton_'+i+'" onClick="submitAnswer('+param+')">Submit</button></div>';
         i = i+1;

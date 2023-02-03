@@ -69,7 +69,7 @@ database.ref('pdfQuestion/solution/'+id).on('value', function(d)
     console.log(d.val());
     d.forEach((childSnapshot) => {
         var key = childSnapshot.val();
-        console.log(key);
+        // console.log(key);
         var qNo = key.qNo;
 
         var param = '\''+id+'\',\''+sessionId+'\',\''+qNo+'\'';
